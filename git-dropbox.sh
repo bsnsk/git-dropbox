@@ -16,8 +16,6 @@ DropboxPath=${DropboxPath%%\"*}
 DropboxPath=${DropboxPath%/}/
 echo "Dropbox directory found: $DropboxPath"
 
-exit 0
-
 printHelp()
 {
     echo "git-dropbox Help Information"
