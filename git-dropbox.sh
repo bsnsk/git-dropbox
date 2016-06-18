@@ -14,7 +14,7 @@ read line < ~/.dropbox/info.json
 DropboxPath=${line#*\"path\":[ ]*\"}
 DropboxPath=${DropboxPath%%\"*}
 DropboxPath=${DropboxPath%/}/
-echo "Dropbox directory found: $DropboxPath"
+echo -e "Dropbox directory found: $DropboxPath\n"
 
 printHelp()
 {
