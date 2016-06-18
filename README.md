@@ -1,6 +1,6 @@
 # git-dropbox
 
-A bash script to backup your git repositories in your Dropbox folder. (Assume you have your Dropbox folder at `~/Dropbox`.)
+A bash script to backup your git repositories in your Dropbox folder. (**Not necessary** to have your Dropbox folder at `~/Dropbox`.)
 
 ## Install
 This will install `git-dropbox` into your directory `/usr/local/bin/`.
