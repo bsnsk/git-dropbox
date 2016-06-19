@@ -2,10 +2,8 @@
 
 dir=$(pwd)
 
-if test -f ~/.dropbox/info.json 
+if ! test -f ~/.dropbox/info.json 
 then
-    echo "Dropbox found!"
-else
     echo "Error: Dropbox not found!"
     exit 0
 fi
@@ -18,15 +16,26 @@ echo -e "Dropbox directory found: $DropboxPath\n"
 
 printHelp()
 {
-    echo "git-dropbox Help Information"
-    echo -e "FORMAT:"
-    echo -e "\t$ git-dropbox [INSTRUCTION]\n"
-    echo "INSTRUCTION:"
-    echo -e "\tcreate [NAME]\n\t\t-- Create a corresponding repo in git/ directory under your Dropbox directory,\n\t\t    NAME is optional"
-    echo -e "\tpush \n\t\t-- Push to your dropbox repo (current branch)"
-    echo -e "\tpull \n\t\t-- Pull from your dropbox repo (current branch)"
-    echo -e "\tlist \n\t\t-- List your repositories in git/ directory under your Dropbox directory"
-    echo ""
+cat << EOF
+Below is git-dropbox Help Information.
+
+FORMAT:
+    $ git-dropbox [INSTRUCTION]
+
+INSTRUCTION:
+    create [NAME]
+        -- Create a corresponding repo in git/ directory under 
+           your Dropbox directory (\${DropboxPath}), i.e.
+               '\${DropboxPath}/git/'.
+           NAME is optional.
+    push 
+        -- Push to your dropbox repo (current branch).
+    pull 
+        -- Pull from your dropbox repo (current branch).
+    list 
+        -- List your repositories in '\${DropboxPath}/git/'.
+
+EOF
 }
 
 if
