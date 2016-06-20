@@ -25,15 +25,15 @@ FORMAT:
 INSTRUCTION:
     create [NAME]
         -- Create a corresponding repo in git/ directory under 
-           your Dropbox directory (\${DropboxPath}), i.e.
-               '\${DropboxPath}/git/'.
+           your Dropbox directory (${DropboxPath}), i.e.
+               '${DropboxPath}git/'.
            NAME is optional.
     push 
         -- Push to your dropbox repo (current branch).
     pull 
         -- Pull from your dropbox repo (current branch).
     list 
-        -- List your repositories in '\${DropboxPath}/git/'.
+        -- List your repositories in '${DropboxPath}git/'.
 
 EOF
 }

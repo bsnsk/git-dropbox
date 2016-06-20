@@ -19,7 +19,10 @@ Run `git-dropbox` to get the help information.
 
 ```bash
 $ git-dropbox
-git-dropbox Help Information
+Dropbox directory found: ${DropboxPath}/
+
+Below is git-dropbox Help Information.
+
 FORMAT:
 	$ git-dropbox [INSTRUCTION]
 
