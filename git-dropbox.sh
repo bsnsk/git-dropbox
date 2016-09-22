@@ -38,14 +38,18 @@ INSTRUCTION:
 EOF
 }
 
+getBranchName()
+{
 if
     git branch 2>&1 | grep "fatal:"
 then # git fatal error
     echo "git error!"
-
+    exit
 else # .git is found and fine
+    branchName=$(git branch | grep \* | awk '{print $2}')
+fi
+}
 
-branchName=$(git branch | grep \* | awk '{print $2}')
 case "$1" in 
     "create")
         folderName=${dir##*/}
@@ -53,6 +57,7 @@ case "$1" in
         then
             folderName=$2
         fi
+        getBranchName
         echo "folder name is ${folderName}"
         (cd $DropboxPath; mkdir git; cd git; git init --bare ${folderName}.git)
         echo "Git Repo ${DropboxPath}git/${folderName}.git created!"
@@ -64,10 +69,12 @@ case "$1" in
         ;;
 
     "push")
+        getBranchName
         git push dropbox ${branchName}
         ;;
 
     "pull")
+        getBranchName
         git pull dropbox ${branchName}
         ;;
 
@@ -80,4 +87,3 @@ case "$1" in
         ;;
 esac
 
-fi
